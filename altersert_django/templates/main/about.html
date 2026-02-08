@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}О нас - {{ site_settings.site_name|default:"Альтер Серт" }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="page-title">О компании</h1>
+        <p class="page-subtitle">Профессиональная сертификация и легализация продукции</p>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Надёжный партнёр в сфере сертификации</h2>
+                <p>Альтер Серт — это команда профессионалов с многолетним опытом в области сертификации и легализации продукции. Мы помогаем компаниям соответствовать всем требованиям законодательства и техническим регламентам.</p>
+                
+                <h3>Наша миссия</h3>
+                <p>Сделать процесс сертификации максимально простым, быстрым и понятным для наших клиентов. Мы берём на себя все сложности оформления документов, чтобы вы могли сосредоточиться на развитии бизнеса.</p>
+                
+                <h3>Почему выбирают нас</h3>
+                <ul class="about-list">
+                    <li>Более 10 лет опыта в сфере сертификации</li>
+                    <li>Команда аккредитованных экспертов</li>
+                    <li>Полное соответствие законодательству</li>
+                    <li>Индивидуальный подход к каждому клиенту</li>
+                    <li>Прозрачное ценообразование без скрытых платежей</li>
+                    <li>Сопровождение на всех этапах сертификации</li>
+                </ul>
+            </div>
+            
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Лет опыта</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Выполненных проектов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Довольных клиентов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15 мин</div>
+                    <div class="stat-label">Среднее время ответа</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Готовы начать сотрудничество?</h2>
+            <p>Свяжитесь с нами для бесплатной консультации</p>
+            <a href="{% url 'index' %}#contact" class="btn btn-primary btn-large">Оставить заявку</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

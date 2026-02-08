@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ site_settings.site_name|default:"Альтер Серт" }}{% endblock %}</title>
+    <meta name="description" content="Профессиональная сертификация и легализация продукции. Полный спектр услуг по оформлению сертификатов соответствия, деклараций, технических условий.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2310b981' rx='15' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='50' fill='white' font-family='Arial'%3EАС%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="{% url 'index' %}" class="logo">
+                <div class="logo-icon">АС</div>
+                <span class="logo-text">{{ site_settings.site_name|default:"Альтер Серт" }}</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="{% url 'index' %}#services" class="nav-link">Услуги</a></li>
+                <li><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+                <li><a href="{% url 'blog' %}" class="nav-link">Блог</a></li>
+                <li><a href="{% url 'contacts' %}" class="nav-link">Контакты</a></li>
+                <li><a href="{% url 'index' %}#contact" class="btn btn-primary nav-btn">Консультация</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="{% url 'index' %}" class="logo">
+                        <div class="logo-icon">АС</div>
+                        <span class="logo-text">{{ site_settings.site_name|default:"Альтер Серт" }}</span>
+                    </a>
+                    <p class="footer-text">{{ site_settings.footer_text|default:"Ваш надёжный партнёр в мире сертификации. Полное соответствие регламентам." }}</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Услуги</h4>
+                    <ul class="footer-links">
+                        <li><a href="{% url 'index' %}#services">Сертификация ТР ТС</a></li>
+                        <li><a href="{% url 'index' %}#services">ISO 9001</a></li>
+                        <li><a href="{% url 'index' %}#services">Разработка ТУ</a></li>
+                        <li><a href="{% url 'index' %}#services">Честный ЗНАК</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Компания</h4>
+                    <ul class="footer-links">
+                        <li><a href="{% url 'about' %}">О нас</a></li>
+                        <li><a href="{% url 'blog' %}">Блог</a></li>
+                        <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                        <li><a href="/admin/">Вход для сотрудников</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Контакты</h4>
+                    <ul class="footer-contacts">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            {{ site_settings.address|default:"г. Москва, ул. Примерная, д. 10, оф. 305" }}
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                            </svg>
+                            <a href="tel:{{ site_settings.phone|default:'+74950000000' }}">{{ site_settings.phone|default:"+7 (495) 000-00-00" }}</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:{{ site_settings.email|default:'info@altersert.ru' }}">{{ site_settings.email|default:"info@altersert.ru" }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {% now "Y" %} {{ site_settings.site_name|default:"Альтер Серт" }}. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <span class="toast-icon" id="toastIcon">✓</span>
+            <span class="toast-message" id="toastMessage"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

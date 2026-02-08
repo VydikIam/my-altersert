@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title|default:"Услуга" }} - {{ site_settings.site_name|default:"Альтер Серт" }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-content-center">
+            <div class="service-icon-large">
+                {% if service.icon %}
+                    {{ service.icon|safe }}
+                {% else %}
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-primary">
+                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                {% endif %}
+            </div>
+            <h1 class="page-title">{{ service.title|default:"Услуга" }}</h1>
+            <p class="page-subtitle">{{ service.short_description|default:"Профессиональное оформление документов" }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="service-content">
+    <div class="container">
+        <div class="service-detail">
+            <div class="service-main">
+                {% if service.image %}
+                    <div class="service-image">
+                        <img src="{{ service.image.url }}" alt="{{ service.title }}" loading="lazy">
+                    </div>
+                {% endif %}
+                
+                <div class="service-description">
+                    {% if service.full_description %}
+                        {{ service.full_description|linebreaks }}
+                    {% else %}
+                        <p>Подробная информация об услуге будет добавлена в ближайшее время.</p>
+                        <p>Для получения консультации свяжитесь с нами по телефону или оставьте заявку на сайте.</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="service-cta">
+                <h3>Нужна консультация?</h3>
+                <p>Свяжитесь с нами, и мы ответим на все ваши вопросы</p>
+                <div class="service-buttons">
+                    <a href="tel:{{ site_settings.phone|default:'+74950000000' }}" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                        </svg>
+                        Позвонить
+                    </a>
+                    <a href="{% url 'index' %}#contact" class="btn btn-secondary">Оставить заявку</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.hero-content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.service-icon-large {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary) 0%, rgba(16, 185, 129, 0.1) 100%);
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.service-icon-large svg {
+    width: 60%;
+    height: 60%;
+    color: var(--primary);
+}
+
+.service-main {
+    margin-bottom: 3rem;
+}
+
+.service-image {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.service-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .service-icon-large {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .service-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .service-buttons .btn {
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}
