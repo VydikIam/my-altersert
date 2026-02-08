@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Блог - {{ site_settings.site_name|default:"Альтер Серт" }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1 class="page-title">Блог</h1>
+        <p class="page-subtitle">Полезные материалы о сертификации и легализации продукции</p>
+    </div>
+</section>
+
+<section class="blog-content">
+    <div class="container">
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-placeholder">СТАТЬЯ</div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">15 января 2026</span>
+                    <h3 class="blog-title">Что такое сертификат соответствия ТР ТС</h3>
+                    <p class="blog-excerpt">Разбираемся в требованиях технических регламентов Таможенного союза и порядке получения сертификатов.</p>
+                    <a href="#" class="blog-link">Читать далее →</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-placeholder">СТАТЬЯ</div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">10 января 2026</span>
+                    <h3 class="blog-title">Разница между сертификатом и декларацией</h3>
+                    <p class="blog-excerpt">В чём отличие двух основных документов подтверждения соответствия и когда нужен каждый из них.</p>
+                    <a href="#" class="blog-link">Читать далее →</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-placeholder">СТАТЬЯ</div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">5 января 2026</span>
+                    <h3 class="blog-title">Система Честный ЗНАК: что нужно знать</h3>
+                    <p class="blog-excerpt">Обзор обязательной маркировки товаров и порядка подключения к системе.</p>
+                    <a href="#" class="blog-link">Читать далее →</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-placeholder">СТАТЬЯ</div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">28 декабря 2025</span>
+                    <h3 class="blog-title">Технические условия: разработка и регистрация</h3>
+                    <p class="blog-excerpt">Пошаговое руководство по созданию и регистрации ТУ для вашей продукции.</p>
+                    <a href="#" class="blog-link">Читать далее →</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-placeholder">СТАТЬЯ</div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">20 декабря 2025</span>
+                    <h3 class="blog-title">Требования к этикетке продукции</h3>
+                    <p class="blog-excerpt">Как правильно оформить этикетку, чтобы она соответствовала всем регламентам.</p>
+                    <a href="#" class="blog-link">Читать далее →</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image">
+                    <div class="blog-placeholder">СТАТЬЯ</div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">15 декабря 2025</span>
+                    <h3 class="blog-title">Регистрация товарного знака</h3>
+                    <p class="blog-excerpt">Зачем нужна регистрация товарного знака и как пройти весь процесс.</p>
+                    <a href="#" class="blog-link">Читать далее →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}
